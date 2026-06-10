@@ -91,13 +91,18 @@
                                                 </span>
                                             </td>
                                             <td class="px-6 py-4 text-right">
-                                                <div class="flex justify-end gap-2">
+                                                <div class="flex justify-end items-center gap-2">
                                                     @if($q->status === 'Menunggu')
                                                         <!-- Option to cancel -->
                                                         <form method="POST" action="{{ route('queues.update-status', $q->id) }}" class="inline-block">
                                                             @csrf
                                                             <input type="hidden" name="status" value="Batal">
-                                                            <button type="submit" class="inline-flex items-center px-2.5 py-1 bg-red-100 hover:bg-red-200 text-red-800 text-xs font-bold rounded" onclick="return confirm('Apakah Anda yakin ingin membatalkan antrean ini?')">
+                                                            <button type="submit" 
+                                                                    class="inline-flex items-center px-2.5 py-1 text-xs font-semibold rounded-md border border-red-200 bg-red-50 text-red-700 dark:border-red-900/50 dark:bg-red-950/20 dark:text-red-400 hover:bg-red-100 dark:hover:bg-red-950/40 transition duration-150 shadow-xs cursor-pointer" 
+                                                                    onclick="return confirm('Apakah Anda yakin ingin membatalkan antrean ini?')">
+                                                                <svg class="w-3.5 h-3.5 mr-1 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                                                </svg>
                                                                 Batalkan
                                                             </button>
                                                         </form>
